@@ -68,6 +68,11 @@ if [ $? -ne 0 ]; then
     rm ${PRODUCT_LOGO_IMG_PACK}
 fi
 
+# Use pre-build logo image if exist.
+if [ -f ${BINARIES_DIR}/logo_img/logo.img ]; then
+	cp ${BINARIES_DIR}/logo_img/logo.img ${BINARIES_DIR}
+fi
+
 ####Step 1: rename dtb to dtb.img
 #change gxb_p200.db to dtb.img
 #Note: if you using more than one dtb, using 'vendor/amlogic/tools/dtbTool' to pack all your dtbs into the dtb.img
